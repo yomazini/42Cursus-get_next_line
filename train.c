@@ -55,34 +55,37 @@
 	*/
 #define Chucksize 20
 
-int main()
-{
-	int fd = open("Exercice1.txt",O_RDONLY);
-	if (fd == -1)
-	{
-		perror("ERROR HAPPEND opening the file:");
-		return 1;
-	}
+// int main()
+// {
+// 	int fd = open("Exercice1.txt",O_RDONLY);
+// 	if (fd == -1)
+// 	{
+// 		perror("ERROR HAPPEND opening the file:");
+// 		return 1;
+// 	}
 	
-	char Buff[Chucksize + 1];
-	size_t bytes_read;
-	while((bytes_read = read(fd , Buff, Chucksize)) > 0)
-	{	Buff[bytes_read] = '\0';
-		if (write(STDOUT_FILENO, Buff, bytes_read) == -1)
-		{
-			perror("Error writin to output");
-			close(fd);
-			return 1;
-		}
+// 	char Buff[Chucksize + 1];
+// 	size_t bytes_read;
+// 	while((bytes_read = read(fd , Buff, Chucksize)) > 0)
+// 	{	Buff[bytes_read] = '\0';
+// 		if (write(STDOUT_FILENO, Buff, bytes_read) == -1)
+// 		{
+// 			perror("Error writin to output");
+// 			close(fd);
+// 			return 1;
+// 		}
 
-		if (write(STDOUT_FILENO,"\n",1) == -1)
-		{
-			perror("Error writing newline.");
-			close(fd);
-			return 1;
-		}
-	}
-	if (bytes_read == -1 )
-		perror("Error reading file");
-	close(fd);
-}
+// 		if (write(STDOUT_FILENO,"\n",1) == -1)
+// 		{
+// 			perror("Error writing newline.");
+// 			close(fd);
+// 			return 1;
+// 		}
+// 	}
+// 	if (bytes_read == -1 )
+// 		perror("Error reading file");
+// 	close(fd);
+// }
+
+// fopen vs open 
+

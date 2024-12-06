@@ -5,7 +5,7 @@
 #include <errno.h>
 #define BUFSIZE 1024
 
-
+//testing mine 
 //TODO: //open file with different flags 
 // error handling // write on it // read from it what you write each 10 words per line untill EOF //  
 

@@ -6,7 +6,7 @@
 /*   By: ymazini <ymazini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:10:27 by ymazini           #+#    #+#             */
-/*   Updated: 2024/12/09 18:10:29 by ymazini          ###   ########.fr       */
+/*   Updated: 2024/12/09 23:37:19 by ymazini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
-# endif
-
-# ifndef FD_SETSIZE
-#  define FD_SETSIZE 1024
 # endif
 
 char	*get_next_line(int fd);

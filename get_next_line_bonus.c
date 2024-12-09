@@ -6,7 +6,7 @@
 /*   By: ymazini <ymazini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:10:17 by ymazini           #+#    #+#             */
-/*   Updated: 2024/12/09 18:28:05 by ymazini          ###   ########.fr       */
+/*   Updated: 2024/12/10 00:21:27 by ymazini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 static char	*read_line(int fd, char **saved)
 {
-	char	buffer[BUFFER_SIZE + 1];
+	char	*buffer;
 	char	*temp;
 	ssize_t	bytes_read;
 
+	buffer = malloc((size_t)BUFFER_SIZE + 1);
+	if (!buffer)
+		return (free(*saved), *saved = NULL, NULL);
 	while (!ft_strchr(*saved, '\n'))
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
-		{
-			free(*saved);
-			*saved = NULL;
-			return (NULL);
-		}
+			return (free(buffer), free(*saved), *saved = NULL, NULL);
 		if (bytes_read == 0)
 			break ;
 		buffer[bytes_read] = '\0';
@@ -34,9 +33,9 @@ static char	*read_line(int fd, char **saved)
 		*saved = ft_strjoin(*saved, buffer);
 		free(temp);
 		if (!*saved)
-			return (NULL);
+			return (free(buffer), NULL);
 	}
-	return (*saved);
+	return (free(buffer), *saved);
 }
 
 static char	*extract_line(char **saved)
@@ -61,10 +60,10 @@ static char	*extract_line(char **saved)
 
 char	*get_next_line(int fd)
 {
-	static char	*saved[FD_SETSIZE];
+	static char	*saved[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || fd >= FD_SETSIZE || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!saved[fd])
 		saved[fd] = ft_strdup("");

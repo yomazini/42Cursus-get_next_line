@@ -26,5 +26,5 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 char	*ft_substr(const char *s, size_t start, size_t len);
-
+//df
 #endif

@@ -1,6 +1,6 @@
 # 📖 get_next_line | 42 School Project
 
-### Reading a file one line at a time, because why not reinvent the wheel? 😄
+### Reading a file one line at a time, because why not reinvent the wheel ? 😄
 
 ![42 School Badge](https://img.shields.io/badge/42-School-blue)
 ![Norminette](https://img.shields.io/badge/Norminette-passing-success)
